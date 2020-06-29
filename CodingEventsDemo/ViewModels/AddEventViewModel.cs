@@ -23,6 +23,12 @@ namespace CodingEventsDemo.ViewModels
         [Range(0, 100000)]
         public int NumberOfAttendees { get; set; }
 
+        public bool IsTrue { get { return true; } }
+
+        [Required]
+        [StringLength(3)]
+        public string RegistrationRequired { get; set; }
+
 
     }
 }

@@ -12,17 +12,19 @@ namespace CodingEventsDemo.Models
 
         public string ContactEmail { get; set; }
         public int NumberOfAttendees { get; set; }
+        public string RegistrationRequired { get; set; }
 
         public int Id { get; }
         static private int nextId = 1;
 
-        public Event(string name, string description, string location, string contactEmail, int numberOfAttendees) : this()
+        public Event(string name, string description, string location, string contactEmail, int numberOfAttendees, string registrationRequired) : this()
         {
             Name = name;
             Description = description;
             Location = location;
             ContactEmail = contactEmail;
             NumberOfAttendees = numberOfAttendees;
+            RegistrationRequired = registrationRequired;
             Id = nextId;
             nextId++;
         }
