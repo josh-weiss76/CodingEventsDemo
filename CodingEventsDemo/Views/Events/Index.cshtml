@@ -40,6 +40,9 @@ else
             <th>
                 Registration Required
             </th>
+            <th>
+                Event Type
+            </th>
 
         </tr>
         @foreach (var evt in Model)
@@ -51,7 +54,8 @@ else
                 <td>@evt.Location</td>
                 <td>@evt.ContactEmail</td>
                 <td>@evt.NumberOfAttendees</td>
-                <td>@evt.RegistrationRequired</td>
+                <td>@evt.Registration</td>
+                <td>@evt.Type</td>
             </tr>
         }
     </table>

@@ -29,9 +29,12 @@
         <span asp-validation-for="NumberOfAttendees"></span>
     </div>
     <div class="form-group">
-        <label asp-for="RegistrationRequired">Registration Required</label>
-        <input asp-for="RegistrationRequired" />
-        <span asp-validation-for="RegistrationRequired"></span>
+        <label asp-for="Registration">Registration Required</label>
+        <select asp-for="Registration" asp-items="Model.RegistrationRequirement"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type">Event Type</label>
+        <select asp-for="Type" asp-items="Model.EventTypes"></select>
     </div>
 
     <input type="submit" value="Add Event" />
