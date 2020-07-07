@@ -40,7 +40,7 @@ namespace coding_events_practice.Controllers
                     Location = addEventViewModel.Location,
                     ContactEmail = addEventViewModel.ContactEmail,
                     NumberOfAttendees = addEventViewModel.NumberOfAttendees,
-                    Registration = addEventViewModel.Registration,
+                    //Registration = addEventViewModel.Registration,
                     Type = addEventViewModel.Type
                 };
 

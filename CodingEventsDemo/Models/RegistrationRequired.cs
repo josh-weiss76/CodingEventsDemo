@@ -8,6 +8,7 @@ namespace CodingEventsDemo.Models
     public enum RegistrationRequired
     {
         Yes,
-        No
+        No,
+        Unknown
     }
 }

@@ -29,14 +29,16 @@ namespace CodingEventsDemo.ViewModels
 
         public bool IsTrue { get { return true; } }
 
-        [Required]
-        public RegistrationRequired Registration { get; set; }
-        public List<SelectListItem> RegistrationRequirement { get; set; } = new List<SelectListItem>
-        {
-            new SelectListItem(RegistrationRequired.Yes.ToString(), ((int)RegistrationRequired.Yes).ToString()),
-            new SelectListItem(RegistrationRequired.No.ToString(), ((int)RegistrationRequired.No).ToString())
-        };
+        //[Required]
+        //public RegistrationRequired Registration { get; set; }
+        //public List<SelectListItem> RegistrationRequirement { get; set; } = new List<SelectListItem>
+        //{
+        //    new SelectListItem(RegistrationRequired.Yes.ToString(), ((int)RegistrationRequired.Yes).ToString()),
+        //    new SelectListItem(RegistrationRequired.No.ToString(), ((int)RegistrationRequired.No).ToString()),
+        //    new SelectListItem(RegistrationRequired.Unknown.ToString(), ((int)RegistrationRequired.Unknown).ToString()),
+        //};
 
+        [Required]
         public EventType Type { get; set; }
         public List<SelectListItem> EventTypes { get; set; } = new List<SelectListItem>
         {
