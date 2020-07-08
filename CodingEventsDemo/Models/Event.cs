@@ -19,7 +19,7 @@ namespace CodingEventsDemo.Models
         {
         }
 
-        public Event(string name, string description, string contactEmail) : this()
+        public Event(string name, string description, string contactEmail)
         {
             Name = name;
             Description = description;
