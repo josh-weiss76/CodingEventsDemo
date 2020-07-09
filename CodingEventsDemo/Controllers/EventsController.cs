@@ -6,6 +6,7 @@ using CodingEventsDemo.Data;
 using CodingEventsDemo.Models;
 using CodingEventsDemo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,14 +23,15 @@ namespace coding_events_practice.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Event> events = context.Events.ToList();
+            List<Event> events = context.Events.Include(e => e.Category).ToList();
 
             return View(events);
         }
 
         public IActionResult Add()
         {
-            AddEventViewModel addEventViewModel = new AddEventViewModel();
+            List<EventCategory> categories = context.EventCategories.ToList();
+            AddEventViewModel addEventViewModel = new AddEventViewModel(categories);
 
             return View(addEventViewModel);
         }
@@ -39,12 +41,13 @@ namespace coding_events_practice.Controllers
         {
             if (ModelState.IsValid)
             {
+                EventCategory theCategory = context.EventCategories.Find(addEventViewModel.CategoryId);
                 Event newEvent = new Event
                 {
                     Name = addEventViewModel.Name,
                     Description = addEventViewModel.Description,
                     ContactEmail = addEventViewModel.ContactEmail,
-                    Type = addEventViewModel.Type
+                    Category = theCategory
                 };
                 
                 context.Events.Add(newEvent);
@@ -75,6 +78,14 @@ namespace coding_events_practice.Controllers
             context.SaveChanges();
 
             return Redirect("/Events");
+        }
+
+        // /Events/Detail/5
+        public IActionResult Detail(int id)
+        {
+            Event theEvent = context.Events.Include(e => e.Category).Single(e => e.Id == id);
+            EventDetailViewModel viewModel = new EventDetailViewModel(theEvent);
+            return View(viewModel);
         }
     }
 }

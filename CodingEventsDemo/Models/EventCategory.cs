@@ -11,6 +11,8 @@ namespace CodingEventsDemo.Models
 
         public int Id { get; set; }
 
+        public List<Event> Events { get; set; }
+
         public EventCategory()
         {
         }
