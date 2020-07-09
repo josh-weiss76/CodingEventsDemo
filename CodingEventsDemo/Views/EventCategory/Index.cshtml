@@ -17,11 +17,11 @@ else
                 Name
             </th>
         </tr>
-        @foreach (var evt in Model)
+        @foreach (EventCategory category in Model)
         {
             <tr>
-                <td>@evt.Id</td>
-                <td>@evt.Name</td>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
             </tr>
         }
     </table>
