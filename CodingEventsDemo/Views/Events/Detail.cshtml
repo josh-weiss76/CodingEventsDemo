@@ -9,10 +9,18 @@
     </tr>
     <tr>
         <th>Contact Email</th>
-        <td>@Model.ContactEmail</td>     
+        <td>@Model.ContactEmail</td>
     </tr>
     <tr>
         <th>Category</th>
         <td>@Model.CategoryName </td>
     </tr>
+    <tr>
+        <th>Tags</th>
+        <td>@Model.TagText </td>
+    </tr>
+
 </table>
+
+
+<a asp-controller="Tag" asp-action="AddEvent" asp-route-id="@Model.EventId">Add Tag</a>
